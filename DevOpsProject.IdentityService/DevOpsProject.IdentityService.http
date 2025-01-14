@@ -1,0 +1,6 @@
+@DevOpsProject.IdentityService_HostAddress = http://localhost:5108
+
+GET {{DevOpsProject.IdentityService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdenitityServices.DataAccess\IdentityService.DataAccess.csproj" />
+    <ProjectReference Include="..\IdentityService.Entitiess\IdentityService.Entitiess.csproj" />
+  </ItemGroup>
+
+</Project>

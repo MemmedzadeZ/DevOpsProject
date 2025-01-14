@@ -1,0 +1,6 @@
+@DevOpsProject.APIGateway_HostAddress = http://localhost:5231
+
+GET {{DevOpsProject.APIGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
