@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IdentityService.Core\IdentityService.Core.csproj" />
     <ProjectReference Include="..\MusicService.Entities\MusicService.Entities.csproj" />
   </ItemGroup>
 

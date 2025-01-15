@@ -10,10 +10,10 @@ namespace MusicService.DataAccess.Repository
     public interface IMusicDal
     {
 
-        Task<List<Music>> GetAllAsync();
-        Task<Music> GetByIdAsync(int id);
-        Task AddAsync(Music audio);
-        Task UpdateAsync(Music audio);
-        Task DeleteAsync(Music audio);
+        //Task<List<Music>> GetAllAsync();
+        //Task<Music> GetByIdAsync(int id);
+        //Task AddAsync(Music audio);
+        //Task UpdateAsync(Music audio);
+        //Task DeleteAsync(Music audio);
     }
 }
