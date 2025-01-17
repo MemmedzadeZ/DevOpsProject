@@ -1,10 +1,19 @@
-
-
 using Ocelot.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", policy =>
+    {
+        policy.WithOrigins("http://localhost:5198")
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 
 IConfiguration configuration = new ConfigurationBuilder()
     .AddJsonFile("ocelot.json")

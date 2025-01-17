@@ -14,8 +14,8 @@ namespace IdentityService.Web_API.DTOS
         public string? Email { get; set; }
         [Required]
         public string? Password { get; set; }
-        
         [Required]
-        public string? Role { get; set; }
+        public string? Surname { get; set; }
+
     }
 }

@@ -12,12 +12,19 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="DTOS\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MusicService.Buisness\MusicService.Buisness.csproj" />
+    <ProjectReference Include="..\MusicService.DataAccess\MusicService.DataAccess.csproj" />
+    <ProjectReference Include="..\MusicService.Entities\MusicService.Entities.csproj" />
   </ItemGroup>
 
 </Project>

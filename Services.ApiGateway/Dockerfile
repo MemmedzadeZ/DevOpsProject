@@ -1,30 +1,32 @@
-# См. статью по ссылке https://aka.ms/customizecontainer, чтобы узнать как настроить контейнер отладки и как Visual Studio использует этот Dockerfile для создания образов для ускорения отладки.
-
-# Этот этап используется при запуске из VS в быстром режиме (по умолчанию для конфигурации отладки)
+# 1. Base Image - çalışma mühiti (ASP.NET Core Runtime)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
-# Этот этап используется для сборки проекта службы
+# 2. Build Image - layihəni tərtib etmək üçün (proje derleme)
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Services.ApiGateway/Services.ApiGateway.csproj", "Services.ApiGateway/"]
-RUN dotnet restore "./Services.ApiGateway/Services.ApiGateway.csproj"
-COPY . .
+
+# Projeyi kopyalayın ve restore işlemi yapın
+COPY ./Services.ApiGateway/Services.ApiGateway.csproj ./Services.ApiGateway/
+RUN dotnet restore "Services.ApiGateway/Services.ApiGateway.csproj"
+
+# Diğer dosyaları kopyalayın ve projeyi build edin
+COPY . . 
 WORKDIR "/src/Services.ApiGateway"
 RUN dotnet build "./Services.ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Этот этап используется для публикации проекта службы, который будет скопирован на последний этап
+# 3. Publish Image - yayımlama mərhələsi
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./Services.ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Этот этап используется в рабочей среде или при запуске из VS в обычном режиме (по умолчанию, когда конфигурация отладки не используется)
+# 4. Final Image - tətbiqin son mərhələsi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Uygulamayı başlatma
 ENTRYPOINT ["dotnet", "Services.ApiGateway.dll"]

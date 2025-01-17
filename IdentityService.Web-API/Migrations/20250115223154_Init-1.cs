@@ -242,6 +242,7 @@ namespace IdentityService.Web_API.Migrations
             migrationBuilder.DropTable(
                 name: "Music");
 
+           
           
 
 

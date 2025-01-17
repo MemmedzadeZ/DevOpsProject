@@ -1,0 +1,122 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 8px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.social-login-buttons button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.google-login {
+  background-color: #4285f4;
+  color: white;
+}
+
+.facebook-login {
+  background-color: #1877f2;
+  color: white;
+}
+
+.apple-login {
+  background-color: black;
+  color: white;
+}
+
+hr {
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #282828;
+  border: none;
+  color: white;
+  border-radius: 4px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #1ed760;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 15px;
+  color: #1db954;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+.no-account {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.no-account a {
+  color: #1db954;
+  text-decoration: none;
+}

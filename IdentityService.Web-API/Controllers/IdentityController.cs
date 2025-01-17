@@ -33,26 +33,43 @@ namespace IdentityService.Web_API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDTO dto)
         {
+            // Eksik alan kontrolü
+            if (string.IsNullOrWhiteSpace(dto.UserName) ||
+                string.IsNullOrWhiteSpace(dto.Email) ||
+                string.IsNullOrWhiteSpace(dto.Name))
+            {
+                return BadRequest("All fields (UserName, Email, Name, Surname) are required.");
+            }
+
             CustomIdentityUser user = new CustomIdentityUser
             {
                 UserName = dto.UserName,
                 Email = dto.Email,
-                Name = dto.Name
-
+                Name = dto.Name,
+               // Surname ekleniyor
             };
 
-            var result = await _userManager.CreateAsync(user,dto.Password);
+            var result = await _userManager.CreateAsync(user, dto.Password);
 
             if (!result.Succeeded)
             {
-                return BadRequest(result.Errors);
+                // Hata durumunu daha detaylı döndürmek
+                return BadRequest(new
+                {
+                    Message = "User registration failed.",
+                    Errors = result.Errors.Select(e => e.Description).ToList()
+                });
             }
             else
             {
-                await _signInManager.SignInAsync(user,isPersistent: false);
-                return Ok(result.Succeeded);
+                // Kullanıcı giriş işlemi
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return Ok(new
+                {
+                    Message = "User registered successfully.",
+                    UserId = user.Id
+                });
             }
-
         }
 
         [HttpPost("login")]

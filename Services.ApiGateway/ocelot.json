@@ -1,0 +1,30 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "api/Identity/Register",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54484
+        }
+      ],
+      "UpstreamPathTemplate": "/signin",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/Login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54484
+        }
+      ],
+      "UpstreamPathTemplate": "/signup",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+
+  ]
+
+}

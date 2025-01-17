@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace IdentityService.Entitiess
 {
-    public class CustomIdentityUser :IdentityUser
+    public class CustomIdentityUser :IdentityUser<string>
     {
-        public int Id { get; set; } 
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public override string Id { get; set; } 
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
 
         public virtual IEnumerable<Music> Musics { get; set; }
-        public CustomIdentityUser()
+      
+        public CustomIdentityUser() : base()
         {
+            this.Id = Guid.NewGuid().ToString(); // id avtomatik təyin edilir
             Musics = new List<Music>();
         }
 

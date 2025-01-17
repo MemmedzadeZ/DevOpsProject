@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdenitityServices.DataAccess\IdentityService.DataAccess.csproj" />
+    <ProjectReference Include="..\MusicService.Core\MusicService.Core.csproj" />
     <ProjectReference Include="..\MusicService.Entities\MusicService.Entities.csproj" />
   </ItemGroup>
 

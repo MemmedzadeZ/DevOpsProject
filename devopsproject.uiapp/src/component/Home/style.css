@@ -1,0 +1,27 @@
+/* Main konteyner üçün üslub */
+.main-container {
+  display: flex;
+  height: 100vh; /* Tam ekran boyu */
+}
+
+/* Sidebar üçün üslub */
+.sidebar {
+  width: 250px; /* Sidebar-ın eni */
+  background-color: #1c1c1c; /* Tünd rəng */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Sidebar-ı sol tərəfə sabitləyir */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Kölgə effekti */
+}
+
+/* Content sahəsi */
+.content {
+  margin-left: 250px; /* Sidebar-dan sonra gələn sahənin margin-i */
+  padding: 20px;
+  flex: 1;
+}
